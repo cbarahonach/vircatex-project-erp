@@ -1,0 +1,67 @@
+<mat-form-field class="buscador-field">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar reporte textil...">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Num. </th>
+            <td mat-cell *matCellDef="let row; let i = index"> {{i + 1}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="fabrica">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fabrica </th>
+            <td mat-cell *matCellDef="let row"> {{row.fabrica}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </th>
+            <td mat-cell *matCellDef="let row"> {{row.cliente}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="fecha_creacion_po">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Creación PO </th>
+            <td mat-cell *matCellDef="let row"> {{row.fecha_creacion_po}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="po_buy">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> PO Buy </th>
+            <td mat-cell *matCellDef="let row"> {{row.po_buy}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="estilo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estilo </th>
+            <td mat-cell *matCellDef="let row"> {{row.estilo}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
+            <td mat-cell *matCellDef="let row"> {{row.color}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="detalles">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Detalles </th>
+            <td mat-cell *matCellDef="let row"> 
+                <button (click)="openModal(row)" mat-icon-button color="primary">
+                    <mat-icon>info</mat-icon>
+                </button>
+                <button (click)="removeRow(row)" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

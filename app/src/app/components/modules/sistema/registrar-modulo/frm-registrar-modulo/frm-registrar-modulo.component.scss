@@ -1,0 +1,16 @@
+mat-form-field {
+  width: 100%;
+}
+
+.itemform {
+  margin: 5px;
+  mat-card {
+    width: 100%;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  mat-hint {
+    color: red;
+  }
+}

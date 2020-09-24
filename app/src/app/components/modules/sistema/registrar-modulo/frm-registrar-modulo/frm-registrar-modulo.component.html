@@ -1,0 +1,88 @@
+<mat-tab-group dynamicHeight backgroundColor="primary" class="mat-elevation-z8">
+    <mat-tab label="Modulos">
+        <div class="row itemform">
+            <mat-card color="primary">
+                <mat-card-header>
+                    <mat-card-title>Registrar Modulo</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="regModuloForm">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput formControlName="nombre" placeholder="Nombre">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Ruta</mat-label>
+                                    <input matInput formControlName="ruta" placeholder="Ruta">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+                <mat-card-actions align="right">
+                    <div>
+                        <button mat-stroked-button style="float:left" (click)="regModuloForm.reset()">
+                            Cancelar
+                        </button>
+                        <mat-spinner-button [options]="spinnerModuloButtonOptions" (click)="registrarModulo()">
+                        </mat-spinner-button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="Rutas">
+        <div class="row itemform">
+            <mat-card color="primary">
+                <mat-card-header>
+                    <mat-card-title>Registrar Ruta</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="regRutaForm">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Modulo</mat-label>
+                                    <mat-select formControlName="modulo_id" placeholder="Tipo de usuario" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="moduloBuscador">
+                                            </ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let modulo of moduloFiltrado | async" [value]="modulo.id">
+                                            {{modulo.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput formControlName="nombre" placeholder="Nombre">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Ruta</mat-label>
+                                    <input matInput formControlName="ruta" placeholder="Ruta">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+                <mat-card-actions align="right">
+                    <div>
+                        <button mat-stroked-button style="float:left" (click)="regRutaForm.reset()">
+                            Cancelar
+                        </button>
+                        <mat-spinner-button [options]="spinnerRutaButtonOptions" (click)="registrarRuta()">
+                        </mat-spinner-button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>

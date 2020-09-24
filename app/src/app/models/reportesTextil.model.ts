@@ -1,0 +1,33 @@
+export class ReporteTextilModel {
+    id: number = 0;
+    fabrica: string = '';
+    cliente: string = '';
+    fecha_creacion_po: string = '';
+    po_buy: string = '';
+    estilo: string = '';
+    op: string = '';
+    tintoreria: string = '';
+    oc_tela: string = '';
+    fecha_oc_tela: string = '';
+    articulo: string = '';
+    tela_principal_complemento: string = '';
+    color: string = '';
+    kg_prog: string = '';
+    partida: string = '';
+    fecha_hilado: string = '';
+    fecha_tejido: string = '';
+    fecha_tenhido: string = '';
+    fecha_ta_planta: string = '';
+    fecha_programada_auditoria: string = '';
+    fecha_reprogramada_auditoria: string = '';
+    fecha_despacho_real: string = '';
+    kilos_despacho: string = '';
+    dias_atraso: string = '';
+    comentarios: string = '';
+    situacion_actual: string = '';
+    tipo_req: string = '';
+    deleted_status: number = 0;
+    created_at: string = '';
+    updated_at: string = '';
+    deleted_at: string = '';
+}

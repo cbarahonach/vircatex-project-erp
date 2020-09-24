@@ -1,0 +1,64 @@
+<div id="detalle-cliente" class="container-fluid">
+  <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+  <div class="row">
+    <div class="col-md-8">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar cliente" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <button mat-flat-button color="primary" (click)="exportExcel()">
+        Exportar Clientes<mat-icon>trending_down</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Position Column -->
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+        <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</th>
+        <td mat-cell *matCellDef="let row">{{ row.nombre }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="volumen">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Volumen</th>
+        <td mat-cell *matCellDef="let row">{{ row.volumen }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="pais">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Pais</th>
+        <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="division">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>División</th>
+        <td mat-cell *matCellDef="let row">{{ row.division }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="info">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Detalles</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" [routerLink]="['/Comercial/detalle-cliente', row.codigo]">
+            <mat-icon>info</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

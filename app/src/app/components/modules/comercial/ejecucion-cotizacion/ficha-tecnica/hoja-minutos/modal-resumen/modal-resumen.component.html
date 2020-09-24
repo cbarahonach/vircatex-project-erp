@@ -1,0 +1,37 @@
+<h1 mat-dialog-title >Registrar Resumen</h1>
+<mat-dialog-content>
+    <form #myForm="ngForm" [formGroup]="modalResumenForm">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <mat-form-field appearance="outline" class="disabled">
+                    <mat-label>Tiempo Costura</mat-label>
+                    <input matInput formControlName="tiempo_costura" autocomplete="off" placeholder="Tiempo Costura">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>TPO Corte</mat-label>
+                    <input matInput (keypress)="numberOnly($event)" formControlName="tpo_corte" autocomplete="off" placeholder="TPO Corte" >
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>TPO Acabados</mat-label>
+                    <input matInput (keypress)="numberOnly($event)" formControlName="tpo_acabados" autocomplete="off" placeholder="TPO Acabados">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <mat-form-field appearance="outline" class="disabled">
+                    <mat-label>Total</mat-label>
+                    <input matInput formControlName="total" autocomplete="off" placeholder="Total">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" (click)="guardarResumen()">Aceptar</button>
+</mat-dialog-actions>

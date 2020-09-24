@@ -1,0 +1,8 @@
+mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after,
+.mat-input-element:disabled {
+  color: darkslategray !important;
+}

@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-20">
+            <app-frm-reporte-manufactura (reloadTable)="reloadTbl($event)"></app-frm-reporte-manufactura>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <app-tbl-reporte-cliente-manufactura [updateTable]="updateTbl"></app-tbl-reporte-cliente-manufactura>
+        </div>
+    </div>
+</div>

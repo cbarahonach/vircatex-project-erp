@@ -1,0 +1,42 @@
+#reporte-manufactura {
+  mat-form-field {
+    width: 100%;
+  }
+  form {
+    width: 100%;
+  }
+  a {
+    color: #000000;
+  }
+  .colorWhite {
+    color: #ffffff !important;
+  }
+
+  .inputfilecontainer {
+    padding: 5px 0;
+    .inputhidden {
+      display: none;
+    }
+    .inputmessage {
+      padding: 10px 20px;
+      color: #a1a1a1;
+      cursor: pointer;
+    }
+    button {
+      margin: 10px 20px 10px 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .inputfilecontainer {
+      .inputmessage {
+        padding: 0 8px;
+        color: #a1a1a1;
+        cursor: default;
+      }
+      button {
+        margin: 10px 0 10px 0;
+      }
+    }
+  }
+}

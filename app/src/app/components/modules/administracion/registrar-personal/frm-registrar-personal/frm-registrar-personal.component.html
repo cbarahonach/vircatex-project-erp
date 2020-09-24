@@ -1,0 +1,55 @@
+<mat-card color="primary" class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>Registrar Personal</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="regPersonalForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombres</mat-label>
+        <input matInput formControlName="nombres" placeholder="Nombres" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Apellidos</mat-label>
+        <input matInput formControlName="apellidos" placeholder="Apellidos" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Area</mat-label>
+        <input matInput formControlName="area" placeholder="Area" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Hora de Ingreso</mat-label>
+        <input
+          type="time"
+          matInput
+          formControlName="hora_ingreso"
+          placeholder="Hora de Ingreso"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Hora de Salida</mat-label>
+        <input
+          type="time"
+          matInput
+          formControlName="hora_salida"
+          placeholder="Hora de Salida"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="right">
+    <div>
+      <button
+        mat-stroked-button
+        style="float:left"
+        (click)="regPersonalForm.reset()"
+      >
+        Cancelar
+      </button>
+      <mat-spinner-button
+        [options]="spinnerButtonOptions"
+        (click)="registrarPersonal()"
+      >
+      </mat-spinner-button>
+    </div>
+  </mat-card-actions>
+</mat-card>

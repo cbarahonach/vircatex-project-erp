@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Minutaje de Corte</h1>
+<mat-dialog-content>
+  <div style="visibility: hidden; height: 1px;">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sequi provident
+    quibusdam sit voluptas consequatur rem nobis laboriosam doloribus
+  </div>
+  <div class="row">
+    <div [ngClass]="image ? 'col-sm-12 col-md-12 col-lg-12 hidden' : 'col-sm-12 col-md-12 col-lg-12'">
+      <div class="form-file">
+        <div class="text" (click)="Input.click()">
+          <span>{{ imageName }}</span>
+        </div>
+        <div class="commands">
+          <button type="button" mat-raised-button (click)="Input.click()">
+            Subir Miniatura de Corte
+          </button>
+          <input
+            accept="image/png,image/jpeg"
+            hidden
+            ng2FileSelect
+            [uploader]="uploader"
+            (onFileSelected)="onImageSelected($event)"
+            #Input
+            type="file"
+            id="file"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3 col-lg-3"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+            (onFileSelected)="onImageSelected($event)" #Input1 type="file" id="file">
+      <img [src]="image" *ngIf="image" (click)="selectorImgOperaciones(Input1)"/>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">
+    Cerrar
+  </button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="guardarImagen()"
+  >
+    Aceptar
+  </button>
+</mat-dialog-actions>

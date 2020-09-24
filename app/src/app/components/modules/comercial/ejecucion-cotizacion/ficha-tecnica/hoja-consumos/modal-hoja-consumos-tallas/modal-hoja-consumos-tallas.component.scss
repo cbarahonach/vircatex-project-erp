@@ -1,0 +1,41 @@
+table {
+  border-collapse: collapse;
+  font-size: 12px;
+  th {
+    text-align: center;
+    font-weight: 500;
+    cursor: default;
+  }
+  td {
+    font-size: 11px;
+    text-align: center;
+    textarea {
+      width: 100%;
+      margin: 0;
+      border: 1px solid #ffffff;
+    }
+  }
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  .bg-darkkhaki {
+    background-color: darkkhaki !important;
+  }
+  .bg-darkgray {
+    background-color: darkgrey !important;
+  }
+  .bg-royalblue {
+    background-color: #3f51b5 !important;
+    color: #ffffff !important;
+  }
+}

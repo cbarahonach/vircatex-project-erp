@@ -1,0 +1,19 @@
+<div id="ejecucion-cotizacion" class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <mat-tab-group dynamicHeight backgroundColor="primary" class="mat-elevation-z8">
+                <mat-tab label="Hoja de Cotización">
+                    <app-hoja-cotizacion></app-hoja-cotizacion>
+                </mat-tab>
+                <mat-tab label="Hoja de Consumo">
+                    <app-hoja-consumos></app-hoja-consumos>
+                </mat-tab>
+                <mat-tab label="Hoja de Minutos">
+                    <app-hoja-minutos></app-hoja-minutos>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+    <app-button-scroll-y></app-button-scroll-y>
+</div>

@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Registrar Estimaciones</h1>
+<mat-dialog-content>
+    <form #myForm="ngForm" [formGroup]="modalEstimacionesForm">
+       <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Si quiero sacar (Pdas)</mat-label>
+                <input matInput (keypress)="numberOnly($event)" formControlName="quiero_sacar" autocomplete="off" placeholder="Si quiero sacar">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Necesito (Pers)</mat-label>
+                <input matInput formControlName="necesito" autocomplete="off" placeholder="Necesito" >
+            </mat-form-field>
+        </div>        
+       </div>
+       <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Si tengo (Pers)</mat-label>
+                <input matInput (keypress)="numberOnly($event)" formControlName="si_tengo" autocomplete="off" placeholder="Si tengo">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Puedo sacar (Pdas)</mat-label>
+                <input matInput formControlName="puedo_sacar" autocomplete="off" placeholder="Puedo sacar">
+            </mat-form-field>
+        </div>
+       </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" (click)="guardarEstimaciones()">Aceptar</button>
+</mat-dialog-actions>

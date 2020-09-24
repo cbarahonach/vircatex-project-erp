@@ -1,0 +1,136 @@
+<div id="hoja-cotizacion" class="row">
+    <mat-card color="primary">
+        <mat-card-header>
+            <mat-card-title>Hoja de Cotización - CODIGO: <span *ngIf="!!cotizacion">{{cotizacion.codigo}}</span></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="regHojaCotizacionForm">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Cliente</mat-label>
+                            <input matInput formControlName="cliente" autocomplete="off" placeholder="Cliente" readonly>
+                            <mat-hint
+                                *ngIf="regHojaCotizacionForm.get('cliente').touched && regHojaCotizacionForm.get('cliente').errors">
+                                Campo Requerido</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>División</mat-label>
+                            <input matInput formControlName="division" autocomplete="off" placeholder="División" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Fecha de Cotización</mat-label>
+                            <input matInput formControlName="fecha_cotizacion" autocomplete="off" placeholder="Fecha de Cotización"
+                                readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Fecha de Actualización</mat-label>
+                            <input matInput formControlName="fecha_actualizacion" autocomplete="off" placeholder="Fecha de Actualización"
+                                readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Estilo del Cliente</mat-label>
+                            <input matInput formControlName="estilo_cliente" autocomplete="off" placeholder="Estilo del Cliente" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled"   >
+                            <mat-label>Tela</mat-label>
+                            <textarea matInput formControlName="tela" autocomplete="off" placeholder="Tela" rows="2" readonly></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Tallas</mat-label>
+                            <input matInput formControlName="tallas" autocomplete="off" placeholder="Tallas" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Descripción</mat-label>
+                            <textarea matInput formControlName="descripcion" autocomplete="off" placeholder="Descripción" rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Estilo Interno</mat-label>
+                            <input matInput formControlName="estilo_interno" autocomplete="off" placeholder="Estilo Interno">
+                        </mat-form-field>
+                    </div>                   
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Complemento (1)</mat-label>
+                            <textarea matInput formControlName="complemento1" autocomplete="off" placeholder="Complemento (1)" rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Complemento (2)</mat-label>
+                            <textarea matInput formControlName="complemento2" autocomplete="off" placeholder="Complemento (2)" rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Complemento (3)</mat-label>
+                            <textarea matInput formControlName="complemento3" autocomplete="off" placeholder="Complemento (3)" rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Complemento (4)</mat-label>
+                            <textarea matInput formControlName="complemento4" autocomplete="off" placeholder="Complemento (4)" rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Proceso</mat-label>
+                            <mat-select formControlName="proceso" class="select-disabled">
+                                <mat-option value="Paño lavado">
+                                    Paño lavado
+                                </mat-option>
+                                <mat-option value="Corte directo">
+                                    Corte directo
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                                <a mat-raised-button color="primary" class="btn-helper"
+                                    (click)="openDialogRutas()">Rutas</a>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                                <a mat-raised-button color="primary" class="btn-helper"
+                                    (click)="openDialogImg()">Imagenes</a>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                                <a mat-raised-button color="primary" class="btn-helper"
+                                    (click)="openDialogSecuencias()">Secuencias</a>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                                <a mat-raised-button color="primary" class="btn-helper "
+                                    (click)="openDialogAvios()">Avios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions align="right">
+            <div>
+                <mat-spinner-button [options]="spinnerButton"
+                    (click)="registrarHojaCotizacion()">
+                </mat-spinner-button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

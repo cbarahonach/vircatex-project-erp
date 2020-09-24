@@ -1,0 +1,11 @@
+<div id="registrar-acceso" class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-mobile">
+            <app-frm-registrar-acceso (updateTable)="listenForm($event)"></app-frm-registrar-acceso>
+        </div>
+        <!--div class="col-sm-12 col-md-6 col-lg-6">
+            <app-tbl-registrar-acceso [listenReload]="reloadTable"></app-tbl-registrar-acceso>
+        <div-->
+    </div>
+</div>

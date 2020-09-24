@@ -1,0 +1,26 @@
+<div id="home-sistemas" class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let seccion of secciones">
+            <mat-card color="primary">
+                <mat-card-header>
+                    <mat-card-subtitle>{{seccion.modulo}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="card-content">
+                        <mat-icon class="mat-icon">touch_app</mat-icon>
+                        <div class="title-card">{{seccion.mr_nombre}}</div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions align="end">
+
+                    <button mat-stroked-button [routerLink]="seccion.mr_ruta">
+                        INGRESAR
+                        <mat-icon>forward</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

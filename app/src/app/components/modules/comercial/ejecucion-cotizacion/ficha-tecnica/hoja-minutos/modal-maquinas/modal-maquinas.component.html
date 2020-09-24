@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Maquinas</h1>
+<mat-dialog-content>
+    <div class="row tbl_dialog_container">
+        <div class="col-sm-12">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+                <ng-container matColumnDef="tipo">
+                    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tipo_maquina}} </td>
+                    <td mat-footer-cell *matFooterCellDef></td>
+                </ng-container>
+
+                <ng-container matColumnDef="maquina">
+                    <th mat-header-cell *matHeaderCellDef> Maquina </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nombre_maquina}} </td>
+                    <td mat-footer-cell *matFooterCellDef>TPO. TOTAL MAQUINA -----></td>
+                </ng-container>
+
+                <ng-container matColumnDef="tstd">
+                    <th mat-header-cell *matHeaderCellDef> TSTD </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ts}} </td>
+                    <td mat-footer-cell *matFooterCellDef>{{total_ts_maq}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="req">
+                    <th mat-header-cell *matHeaderCellDef> REQ. </th>
+                    <td mat-cell *matCellDef="let element">{{element.req}}</td>
+                    <td mat-footer-cell *matFooterCellDef>{{processPuestoTeorico(total_ts_maq, true)}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="a_solicitar">
+                    <th mat-header-cell *matHeaderCellDef> A solicitar. </th>
+                    <td mat-cell *matCellDef="let element">{{element.a_solicitar}}</td>
+                    <td mat-footer-cell *matFooterCellDef>{{a_solicitar_total}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+            </table>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+</mat-dialog-actions>

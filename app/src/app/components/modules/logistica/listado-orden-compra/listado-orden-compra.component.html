@@ -1,0 +1,67 @@
+<app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+
+<!--div class="col-sm-12 col-md-6 col-lg-6">
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de Orden</mat-label>
+    <mat-select [(ngModel)]="tipo_orden" autocomplete="off" placeholder="Tipo de Orden">
+      <mat-option [value]="1"> Orden de Compra </mat-option>
+      <mat-option [value]="2"> Orden de Servicio </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div-->
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Ordenes" />
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>N° ITEM</th>
+      <td mat-cell *matCellDef="let row">{{ showCode(row) }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="tipo_orden">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TIPO</th>
+      <td mat-cell *matCellDef="let row">{{ showOrden(row) }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="proveedor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>RAZON SOCIAL</th>
+      <td mat-cell *matCellDef="let row">{{ row.prov_razon_social }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>USUARIO</th>
+      <td mat-cell *matCellDef="let row">{{ row.usuario_nombre }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="fecha_entrega">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>FECHA ENTREGA</th>
+      <td mat-cell *matCellDef="let row">
+        {{ setDateFormat(row.fecha_entrega) }}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACCIONES</th>
+      <td mat-cell *matCellDef="let row">
+        <button (click)="generarPdf(row)" mat-raised-button color="primary">VER PDF</button> &nbsp;&nbsp;
+        <!--button mat-raised-button class="bottom_edit"
+          [routerLink]="['/Logistica/update-listado-orden-compra-listado',row.id]">EDITAR</button-->&nbsp;&nbsp;
+        <button (click)="eliminarOrdenCompra(row)" mat-raised-button color="warn">ELIMINAR</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" *ngIf="isLoggedIn$ | async">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home">{{ app_name }}</a>
+    </div>
+    <span class="menu-spacer"></span>
+    <div>
+        <!--button mat-icon-button >
+            <mat-icon matBadgeColor="accent" matBadge="1" >notifications</mat-icon>
+        </button-->
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="navProfile()">
+                <mat-icon color="primary">person</mat-icon>
+                <span>Mi perfil</span>
+            </button>
+            <button mat-menu-item (click)="onLogout()">
+                <mat-icon color="warn">exit_to_app</mat-icon>
+                <span>Salir</span>
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>

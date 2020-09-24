@@ -1,0 +1,52 @@
+<h1 mat-dialog-title >Registrar Operaciones</h1>
+<h1 mat-dialog-title >Operaciones</h1>
+<mat-dialog-content>
+    <form #myForm="ngForm" [formGroup]="modalItemOrdenCompras">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Item</mat-label>
+                    <input matInput formControlName="item" autocomplete="off" placeholder="Item">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>{{desc_title}}</mat-label>
+                    <textarea rows="1" matInput formControlName="concepto" autocomplete="off"
+                        [placeholder]="desc_title"></textarea>
+                </mat-form-field>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Cantidad</mat-label>
+                    <input type="number" matInput (keypress)="numberOnly($event)" formControlName="cantidad"
+                        autocomplete="off" placeholder="Cantidad">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Unidad de medida</mat-label>
+                    <mat-select formControlName="unidad_medida">
+                        <mat-option *ngFor="let medida of unidad_medida_selector" [value]="medida">
+                            {{medida}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Precio unitario</mat-label>
+                    <input type="number" matInput (keypress)="numberOnly($event)" formControlName="precio_unitario"
+                        autocomplete="off" placeholder="Precio unitario">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" [disabled]="modalItemOrdenCompras.invalid"
+        (click)="onSubmit(modalItemOrdenCompras.value)">Aceptar</button>
+</mat-dialog-actions>

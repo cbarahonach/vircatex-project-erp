@@ -1,0 +1,56 @@
+mat-form-field {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #f2f2f2;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+  cursor: pointer;
+}
+
+.details-row {
+  overflow: hidden;
+  display: flex;
+}
+
+.details-row h2 {
+  color: #3f51b5;
+  border-bottom: 1px solid #3f51b5;
+  padding: 0 30px;
+  text-align: center;
+  margin: 0;
+}
+
+.tp-body, .hm-body {
+  border: 1px solid #3f51b5;
+  margin: 5px 10px 5px 0;
+  width: 250px;
+  background-color: #f2f2f2;
+}
+
+.details-row img {
+  width: 100%;
+  margin: 0;
+}
+
+
+
+.details-body ul li{
+  padding: 10px 0;
+  list-style: none;
+}

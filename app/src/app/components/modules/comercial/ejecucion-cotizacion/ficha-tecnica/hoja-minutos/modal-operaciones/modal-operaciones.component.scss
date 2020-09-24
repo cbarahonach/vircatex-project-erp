@@ -1,0 +1,38 @@
+mat-dialog-content {
+  width: 99vw;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .cdk-column-item {
+    width: 5%;
+  }
+
+  .cdk-column-bloque {
+    width: 10%;
+  }
+
+  .cdk-column-operacion {
+    width: 25%;
+  }
+}
+
+
+.disabled textarea[readonly],
+.disabled input[readonly] {
+  color: #3f51b5;
+  font-weight: 500;
+  cursor: default;
+}
+
+::ng-deep .disabled.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #3f51b5 !important;
+  opacity: 1 !important;
+  background-color: rgba(0,0,0,.009);
+}

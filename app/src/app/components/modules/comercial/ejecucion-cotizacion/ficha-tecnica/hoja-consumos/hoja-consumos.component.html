@@ -1,0 +1,200 @@
+<div id="hoja-consumos" class="row">
+    <mat-card color="primary">
+        <mat-card-header>
+            <mat-card-title>Hoja de Consumo</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="regHojaConsumosForm">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Cliente</mat-label>
+                            <input matInput formControlName="cliente" autocomplete="off" placeholder="Cliente" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Estilo del Cliente</mat-label>
+                            <input matInput formControlName="estilo_cliente" autocomplete="off"
+                                placeholder="Estilo del Cliente" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Estilo Interno</mat-label>
+                            <input matInput formControlName="estilo_interno" autocomplete="off"
+                                placeholder="Estilo Interno" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Fecha de Cotización</mat-label>
+                            <input matInput formControlName="fecha_cotizacion" autocomplete="off"
+                                placeholder="Fecha de Cotización" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Tela</mat-label>
+                            <textarea matInput formControlName="tela" autocomplete="off" placeholder="Tela" rows="1"
+                                readonly></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Descripción</mat-label>
+                            <textarea matInput formControlName="descripcion" autocomplete="off"
+                                placeholder="Descripción" readonly rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline" class="disabled"
+                            *ngIf="regHojaConsumosForm.controls.complemento_1.value.trim().length > 0">
+                            <mat-label>Complemento (1)</mat-label>
+                            <textarea matInput formControlName="complemento_1" autocomplete="off"
+                                placeholder="Complemento (1)" readonly rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3"
+                        *ngIf="regHojaConsumosForm.controls.complemento_2.value.trim().length > 0">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Complemento (2)</mat-label>
+                            <textarea matInput formControlName="complemento_2" autocomplete="off"
+                                placeholder="Complemento (2)" readonly rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3"
+                        *ngIf="regHojaConsumosForm.controls.complemento_3.value.trim().length > 0">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Complemento (3)</mat-label>
+                            <textarea matInput formControlName="complemento_3" autocomplete="off"
+                                placeholder="Complemento (3)" readonly rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3"
+                        *ngIf="regHojaConsumosForm.controls.complemento_4.value.trim().length > 0">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Complemento (4)</mat-label>
+                            <textarea matInput formControlName="complemento_4" autocomplete="off"
+                                placeholder="Complemento (4)" readonly rows="1"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <mat-form-field appearance="outline" class="disabled">
+                            <mat-label>Proceso</mat-label>
+                            <textarea matInput formControlName="proceso" autocomplete="off" placeholder="Proceso"
+                                rows="1" readonly></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Encogimiento Molde</mat-label>
+                            <input matInput formControlName="encogimiento_molde" autocomplete="off"
+                                placeholder="Encogimiento Molde">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <a mat-raised-button color="primary" class="btn-helper" (click)="OpenDialogTallas()">Tallas</a>
+                        &nbsp;
+                        <a mat-raised-button color="primary" class="btn-helper"
+                            (click)="OpenDialogMiniaturaCorte()">Minutaje de Corte</a>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div id="fc-hc-datos-basicos-tela">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="bg-darkkhaki py-2" colspan="8" width="70%">DATOS BASICOS DE TELA</th>
+                                <th class="bg-darkgray py-2" colspan="3" width="30%">DATOS DE TIZADO</th>
+                            </tr>
+                            <tr class="bg-royalblue">
+                                <th width="35%" colspan="2" rowspan="2">TELAS</th>
+                                <th width="60px" rowspan="3">Ancho Total</th>
+                                <th colspan="2">Densidad</th>
+                                <th colspan="2">Encogimientos</th>
+                                <th width="60px">Revirado</th>
+                                <th class="bg-darkgreen" width="70px" rowspan="3">Ancho de Tizado</th>
+                                <th class="bg-darkgreen" width="70px" rowspan="3">Largo de Tizado</th>
+                                <th class="bg-darkgreen" width="70px" rowspan="3">Tolerancia</th>
+                            </tr>
+                            <tr class="bg-royalblue">
+                                <th width="60px" rowspan="2">A/W (kgs.)</th>
+                                <th width="60px" rowspan="2">B/W (kgs.)</th>
+                                <th width="60px">Largo</th>
+                                <th width="60px">Ancho</th>
+                                <th rowspan="2">%</th>
+                            </tr>
+                            <tr class="bg-royalblue">
+                                <th width="95px">Componentes</th>
+                                <th>Descripción</th>
+                                <th>(%)</th>
+                                <th>(%)</th>
+                            </tr>
+                            <tbody>
+                                <tr *ngFor="let item of telasContainer; let i = index">
+                                    <div *ngIf="item.tela.trim().length > 0" class="bodyTable">
+                                        <td>{{item.componente}}</td>
+                                        <td>{{item.tela}}</td>
+                                        <td>{{readAttributesTable(i, 'at')}}</td>
+                                        <td>{{readAttributesTable(i, 'aw')}}</td>
+                                        <td>{{readAttributesTable(i, 'bw')}}</td>
+                                        <td>{{readAttributesTable(i, 'el')}}</td>
+                                        <td>{{readAttributesTable(i, 'ea')}}</td>
+                                        <td>{{readAttributesTable(i, 'rev')}}</td>
+                                        <td>{{readAttributesTable(i, 'a_tizado')}}</td>
+                                        <td><textarea [(ngModel)]="dbtLTizado[i]" rows="2"></textarea></td>
+                                        <td><textarea [(ngModel)]="dbtTolerancia[i]" rows="2"></textarea></td>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <table class="table table-bordered">
+                        <tr class="bg-royalblue">
+                            <th width="25%">Componentes</th>
+                            <th width="30%">Tela</th>
+                            <th width="8%">Eficiencia</th>
+                            <th width="8%">Largo Tizado</th>
+                            <th width="8%">Consumo Lineal</th>
+                            <th width="8%">Consumo Neto</th>
+                            <th width="8%">Merma Corte</th>
+                            <th width="8%">Consumo Bruto</th>
+                        </tr>
+                        <tbody>
+                            <tr *ngFor="let item of telasContainer; let i = index">
+                                <div *ngIf="item.tela.trim().length > 0" class="bodyTable">
+                                    <td><textarea [(ngModel)]="cmpComponentes[i]" rows="2"></textarea>
+                                    </td>
+                                    <td>{{item.tela}}</td>
+                                    <td><textarea [(ngModel)]="cmpEficiencia[i]" rows="2"></textarea>
+                                    </td>
+                                    <td><textarea [(ngModel)]="cmpLTizado[i]" rows="2"></textarea>
+                                    </td>
+                                    <td>{{calcularConsumoLineal(cmpLTizado[i])}}</td>
+                                    <td><textarea [(ngModel)]="cmpCNeto[i]" rows="2"></textarea>
+                                    </td>
+                                    <td><textarea [(ngModel)]="cmpMCorte[i]" rows="2"></textarea>
+                                    </td>
+                                    <td>{{calcularConsumoBruto(cmpCNeto[i], cmpMCorte[i])}}</td>
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions align="right">
+            <div>
+                <mat-spinner-button [options]="spinnerButton" (click)="registrarHojaConsumos()">
+                </mat-spinner-button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <app-frm-registrar-personal
+        (updateTable)="listenForm($event)"
+      ></app-frm-registrar-personal>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <app-tbl-registrar-personal
+        [listenReload]="reloadTable"
+      ></app-tbl-registrar-personal>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+form {
+  width: 100%;
+}
+
+mat-dialog-content {
+  width: 99vw;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.tbl_dialog_container {
+  margin-top: 10px;
+}
+
+.cdk-column-paso {
+  width: 5% ;
+}
+
+.cdk-column-ruta {
+  width: 17% ;
+}
+
+.cdk-column-observacion {
+  width: 70% ;
+}
+
+.cdk-column-remove {
+  width: 8% ;
+}
+
+@media (max-width: 750px) {
+  mat-dialog-content{
+    min-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  mat-dialog-content{
+    min-width: 300px;
+  }
+}
+
+@media (min-width: 1000px) {
+  mat-dialog-content{
+    min-width: 800px;
+  }
+}

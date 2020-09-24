@@ -1,0 +1,39 @@
+<div id="reporte-manufactura">
+    <mat-card color="primary" class="mat-elevation-z8">
+        <mat-card-header>
+            <mat-card-title>Registrar reporte manufactura</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #myForm="ngForm" [formGroup]="regReporteManufactura">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Cliente</mat-label>
+                            <input matInput formControlName="cliente" placeholder="Cliente">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="inputfilecontainer">
+                            <input #fileInput type="file" ng2FileSelect [uploader]="uploader"
+                                (onFileSelected)="OnFileSelected($event)" class="inputhidden">
+                            <span (click)="fileInput.click()" class="inputmessage">{{inputFileMessage}}</span>
+                            <a mat-raised-button (click)="fileInput.click()">
+                                Subir archivo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-1">
+                        <button (click)="registrarManufactura()" mat-flat-button color="primary" [disabled]="noenviar">
+                            Registrar
+                        </button>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-2">
+                        <a [href]="FileFormatURL" mat-flat-button color="primary" class="colorWhite">
+                            Descargar Formato
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

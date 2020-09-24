@@ -1,0 +1,103 @@
+<div id="ejecucion-cotizacion" class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+
+    <div class="row">
+        <div class="inline" *ngFor="let tela of telas; let i = index">
+            <div class="col-sm-12 col-md-6 col-lg-6 card" *ngIf="tela.size > 0">
+                <mat-card color="primary" class="mat-elevation-z8">
+                    <mat-card-header>
+                        <mat-card-title>{{tela.title}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Articulo</mat-label>
+                                    <textarea matInput [(ngModel)]="articulo[i]" rows="1" autocomplete="off" placeholder="Articulo">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Color</mat-label>
+                                    <textarea matInput [(ngModel)]="color[i]" rows="1" autocomplete="off" placeholder="Color">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Titulo de Tela</mat-label>
+                                    <textarea matInput [(ngModel)]="material[i]" rows="1" autocomplete="off" placeholder="Titulo de Tela">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Ancho Total</mat-label>
+                                    <textarea matInput [(ngModel)]="ancho[i]" rows="1" autocomplete="off" placeholder="Ancho Total">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Densidad A/W</mat-label>
+                                    <textarea matInput [(ngModel)]="densidadA[i]" rows="1" autocomplete="off" placeholder="Densidad A/W">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Densidad B/W</mat-label>
+                                    <textarea matInput [(ngModel)]="densidadB[i]" rows="1" autocomplete="off" placeholder="Densidad B/W">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Proveedor</mat-label>
+                                    <textarea matInput [(ngModel)]="proveedor[i]" rows="1" autocomplete="off" placeholder="Proveedor">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Revirado</mat-label>
+                                    <textarea matInput [(ngModel)]="revirado[i]" rows="1" autocomplete="off" placeholder="Revirado">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Encogimiento Largo(%)</mat-label>
+                                    <textarea matInput [(ngModel)]="e_largo[i]" rows="1" autocomplete="off" placeholder="Encogimiento Largo(%)">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Encogimiento Ancho(%)</mat-label>
+                                    <textarea matInput [(ngModel)]="e_ancho[i]" rows="1" autocomplete="off" placeholder="Encogimiento Ancho(%)">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Precio</mat-label>
+                                    <textarea matInput [(ngModel)]="precio[i]" rows="1" autocomplete="off" placeholder="Precio">
+                                    </textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions align="right">
+                        <div>
+                            <button mat-stroked-button color="primary" (click)="guardarTela(i)">
+                                Guardar
+                            </button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

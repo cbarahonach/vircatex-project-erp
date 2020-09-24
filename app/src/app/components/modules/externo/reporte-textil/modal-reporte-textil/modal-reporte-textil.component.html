@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Reporte # {{data.id}}</h1>
+<div mat-dialog-content>
+    <div style="visibility: hidden; height: 1px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sequi provident quibusdam sit voluptas consequatur
+        rem nobis laboriosam doloribus
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6" *ngFor="let key of arrayOfKeys">
+            <mat-form-field appearance="outline">
+                <mat-label>{{fixTitles(key)}}</mat-label>
+                <textarea spellcheck="false" rows="1" matInput [(ngModel)]="data[key]" [placeholder]="fixTitles(key)"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" (click)="actualizarFichaTecnica()">Guardar</button>
+</div>

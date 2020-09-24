@@ -1,0 +1,115 @@
+<div class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <mat-card color="primary" class="mat-elevation-z8">
+                <mat-card-header>
+                    <mat-card-title>Registrar Cliente</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="regclienteForm">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre del cliente</mat-label>
+                                    <input matInput formControlName="cliente" autocomplete="off" placeholder="Nombre del cliente">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Pais</mat-label>
+                                    <mat-select formControlName="pais" autocomplete="off" placeholder="Pais" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="paisBuscador">
+                                            </ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let pais of paisFiltrado | async" [value]="pais.id">
+                                            {{pais.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de cliente</mat-label>
+                                    <mat-select formControlName="tc" autocomplete="off" placeholder="Tipo de cliente" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="tcBuscador"></ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let tc of tcFiltrado | async" [value]="tc.id">
+                                            {{tc.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre de contacto</mat-label>
+                                    <input matInput formControlName="nombreContacto" autocomplete="off" placeholder="Nombre de contacto.">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Correo de contacto</mat-label>
+                                    <input matInput formControlName="correoContacto" autocomplete="off" placeholder="Correo de contacto.">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Teléfono de contacto</mat-label>
+                                    <input matInput formControlName="telefonoContacto"
+                                        autocomplete="off" placeholder="Teléfono de contacto.">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>División</mat-label>
+                                    <mat-select formControlName="division" autocomplete="off" placeholder="División" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="divisionBuscador">
+                                            </ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let division of divisionFiltrado | async"
+                                            [value]="division.id">
+                                            {{division.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Volumen</mat-label>
+                                    <mat-select formControlName="volumen" autocomplete="off" placeholder="Volumen" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="volumenBuscador">
+                                            </ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let volumen of volumenFiltrado | async"
+                                            [value]="volumen.id">
+                                            {{volumen.rango}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+                <mat-card-actions align="right">
+                    <div>
+                        <button mat-stroked-button style="float:left" (click)="regclienteForm.reset()">
+                            Cancelar
+                        </button>
+                        <mat-spinner-button [options]="spinnerButton" (click)="registrarCliente()">
+                        </mat-spinner-button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<div id="detalle-personal" class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+      <mat-card color="primary" class="mat-elevation-z8">
+        <mat-card-header>
+          <mat-card-title>Datos del Personal</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <form [formGroup]="detallesForm">
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombres</mat-label>
+                  <input
+                    matInput
+                    formControlName="nombres"
+                    placeholder="Nombres"
+                    [readonly]="readFrm"
+                  />
+                </mat-form-field>
+              </div>
+  
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Apellidos</mat-label>
+                  <input
+                    matInput
+                    formControlName="apellidos"
+                    placeholder="Apellidos"
+                    [readonly]="readFrm"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Área</mat-label>
+                  <input
+                    matInput
+                    formControlName="area"
+                    placeholder="Área"
+                    [readonly]="readFrm"
+                  />
+                </mat-form-field>          
+              </div>
+              <div class="col-sm-12 col-md-3 col-lg-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Hora de Ingreso</mat-label>
+                  <input
+                    type="time"
+                    matInput
+                    formControlName="hora_ingreso"
+                    placeholder="Nombre de Contacto"
+                    [readonly]="readFrm"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 col-md-3 col-lg-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Hora de Salida</mat-label>
+                  <input
+                    type="time"
+                    matInput
+                    formControlName="hora_salida"
+                    placeholder="Correo de contacto"
+                    [readonly]="readFrm"
+                  />
+                </mat-form-field>
+              </div>
+              
+            </div>
+          </form>
+        </mat-card-content>
+        <mat-card-actions align="right">
+          <div>
+            <button
+              mat-stroked-button
+              *ngIf="!readFrm"
+              style="float:left"
+              (click)="statusFrm(true)"
+            >
+              Cancelar
+            </button>
+  
+            <button
+              mat-raised-button
+              color="accent"
+              *ngIf="readFrm"
+              (click)="statusFrm(false)"
+            >
+              Editar
+            </button>
+            <mat-spinner-button
+              *ngIf="!readFrm"
+              [options]="spinnerButtonOptions"
+              (click)="registrarPersonalDetalles()"
+            >
+            </mat-spinner-button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  

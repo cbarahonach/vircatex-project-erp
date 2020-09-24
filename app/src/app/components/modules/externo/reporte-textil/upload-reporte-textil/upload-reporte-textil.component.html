@@ -1,0 +1,6 @@
+<div class="mat-elevation-z8 inputfilecontainer">
+    <input #fileInput type="file" ng2FileSelect [uploader]="uploader" (onFileSelected)="OnFileSelected($event)"
+        class="inputhidden">
+    <span (click)="fileInput.click()" class="inputmessage">{{inputFileMessage}}</span>
+    <button mat-flat-button color="primary" (click)="registrarReportes()" [disabled]="noenviar" >Subir archivo</button>
+</div>

@@ -1,0 +1,29 @@
+a {
+  text-decoration: none;
+  color: white !important;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.notify-space {
+  padding-right: 40px;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 959px) {
+  mat-toolbar {
+    border-radius: 0px;
+  }
+}

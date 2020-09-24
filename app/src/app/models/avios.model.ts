@@ -1,0 +1,21 @@
+export class AviosModel {
+    id: number = 0;
+    avios_familia_id: number = 0;
+    nombre: string = '';
+    construccion: string = '';
+    color: string = '';
+    dimensiones: string = '';
+    gramaje_densidad: string = '';
+    elongacion: string = '';
+    impresion_disenho: string = '';
+    caracteristicas_ht: string = '';
+    tipo: string = '';
+    caracteristicas_bolsa: string = '';
+    caracteristicas_cierre: string = '';
+    descripcion_libre: string = '';
+    it: string = '';
+    deleted_status: number = 0;
+    created_at: string = '';
+    updated_at: string = '';
+    deleted_at: string = '';
+}

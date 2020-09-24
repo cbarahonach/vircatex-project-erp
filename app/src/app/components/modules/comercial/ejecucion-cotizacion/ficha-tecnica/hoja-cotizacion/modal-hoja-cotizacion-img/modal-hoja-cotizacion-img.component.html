@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Registrar Imagenes</h1>
+<mat-dialog-content>
+    <div class="row">
+        <div [ngClass]="image1 ? 'col-sm-12 col-md-12 col-lg-12 hidden' : 'col-sm-12 col-md-12 col-lg-12'">
+            <div class="form-file">
+                <div class="text" (click)="Input1.click()">
+                    <span>{{image1Name}}</span>
+                </div>
+                <div class="commands">
+                    <button type="button" mat-raised-button (click)="Input1.click()">Subir Hoja de
+                        medida</button>
+                    <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+                        (onFileSelected)="onImage1Selected($event)" #Input1 type="file" id="file">
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="image2 ? 'col-sm-12 col-md-12 col-lg-12 hidden' : 'col-sm-12 col-md-12 col-lg-12'">
+            <div class="form-file">
+                <div class="text" (click)="Input2.click()">
+                    <span>{{image2Name}}</span>
+                </div>
+                <div class="commands">
+                    <button type="button" mat-raised-button (click)="Input2.click()">Subir Hoja de
+                        medida</button>
+                    <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+                        (onFileSelected)="onImage2Selected($event)" #Input2 type="file" id="file">
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="image3 ? 'col-sm-12 col-md-12 col-lg-12 hidden' : 'col-sm-12 col-md-12 col-lg-12'">
+            <div class="form-file">
+                <div class="text" (click)="Input3.click()">
+                    <span>{{image3Name}}</span>
+                </div>
+                <div class="commands">
+                    <button type="button" mat-raised-button (click)="Input3.click()">Subir Hoja de
+                        medida</button>
+                    <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+                        (onFileSelected)="onImage3Selected($event)" #Input3 type="file" id="file">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6" *ngIf="image1">
+            <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+            (onFileSelected)="onImage1Selected($event)" #Input1 type="file" id="file">
+            <img [src]="image1" alt="Select Image" (click)="selectorImgOperaciones(1,Input1)"/>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6" *ngIf="image2">
+            <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+            (onFileSelected)="onImage2Selected($event)" #Input2 type="file" id="file">
+            <img [src]="image2" alt="Select Image" (click)="selectorImgOperaciones(2,Input2)"/>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6" *ngIf="image3">
+            <input accept="image/png,image/jpeg" hidden ng2FileSelect [uploader]="uploader"
+            (onFileSelected)="onImage3Selected($event)" #Input3 type="file" id="file">
+            <img [src]="image3" alt="Select Image" (click)="selectorImgOperaciones(3,Input3)"/>
+        </div>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" (click)="guardarImagenes()">Aceptar</button>
+</mat-dialog-actions>

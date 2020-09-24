@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 mb-mobile">
+            <app-upload-reporte-textil (updateTable)="listenForm($event)"></app-upload-reporte-textil>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="mat-elevation-z8 btnExcelContainer">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <button mat-flat-button color="primary" (click)="exportAllData()">
+                            Exportar <mat-icon>trending_down</mat-icon>
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <a [href]="FileFormatURL" mat-flat-button color="primary" class="colorWhite">
+                            Descargar Formato
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <app-tbl-reporte-textil [listenReload]="reloadTable" (setExcelData)="listenTable($event)">
+            </app-tbl-reporte-textil>
+        </div>
+    </div>
+</div>

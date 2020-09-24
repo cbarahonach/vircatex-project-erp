@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Registrar curva:</h1>
+<div mat-dialog-content>
+    <form [formGroup]="modalFormCurva">
+        <mat-form-field appearance="outline">
+            <mat-label>Curvas</mat-label>
+            <mat-select formControlName="curva" autocomplete="off" placeholder="Curvas" #singleSelect>
+                <mat-option>
+                    <ngx-mat-select-search formControlName="curvaBuscador"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let curva of curvaFiltrado | async" [value]="curva.id">
+                    {{curva.medida}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Cantidad</mat-label>
+            <input type="number" matInput formControlName="cantidad" autocomplete="off" placeholder="Cantidad">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+    <button mat-flat-button color="primary" [disabled]="disabled" (click)="onSave()">Guardar</button>
+</div>

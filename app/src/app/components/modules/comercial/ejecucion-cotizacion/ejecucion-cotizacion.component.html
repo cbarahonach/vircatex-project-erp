@@ -1,0 +1,133 @@
+<div id="ejecucion-cotizacion" class="container-fluid">
+  <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <mat-form-field class="buscador-field">
+      <input
+        matInput
+        (keyup)="applyFilter($event.target.value)"
+        placeholder="Buscar cotización ..."
+      />
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+        <ng-container
+          matColumnDef="{{ column }}"
+          *ngFor="let column of columnsToDisplay; let i = index"
+        >
+          <th mat-header-cell *matHeaderCellDef>{{ headerColumns[i] }}</th>
+          <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+        </ng-container>
+
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+        <ng-container matColumnDef="expandedDetail">
+          <td
+            mat-cell
+            *matCellDef="let element"
+            [attr.colspan]="columnsToDisplay.length"
+          >
+            <div
+              class="details-row"
+              [@detailExpand]="
+                element == expandedElement ? 'expanded' : 'collapsed'
+              "
+            >
+              <div class="tp-body">
+                <h2>TP Imagen</h2>
+                <a
+                  *ngIf="element.tp_archivo"
+                  [href]="pathImage + element.tp_archivo"
+                  target="_blank"
+                  download
+                >
+                  <img [src]="pathImage + element.tp_archivo" [alt]="element.tp_archivo" />
+                </a>
+                <img
+                  *ngIf="!element.tp_archivo"
+                  [src]="pathDefault + 'not_found.png'"
+                  alt="No hay archivo adjunto"
+                />
+              </div>
+              <div class="hm-body">
+                <h2>Hoja de medidas</h2>
+                <a
+                  *ngIf="element.hm_archivo"
+                  [href]="pathImage + element.hm_archivo"
+                  target="_blank"
+                  download
+                >
+                  <img
+                    [src]="pathImage + element.hm_archivo"
+                    [alt]="element.hm_archivo"
+                  />
+                </a>
+                <img
+                  *ngIf="!element.hm_archivo"
+                  [src]="pathDefault + 'not_found.png'"
+                  alt="No hay archivo adjunto"
+                />
+              </div>
+              <div class="details-body">
+                <ul>
+                  <li>
+                    <button
+                      mat-flat-button
+                      color="primary"
+                      [routerLink]="[
+                        '/Comercial/ejecucion-cotizacion/ficha-tecnica',
+                        element.id
+                      ]"
+                    >
+                      Ficha Técnica
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      mat-flat-button
+                      color="primary"
+                      [routerLink]="[
+                        '/Comercial/ejecucion-cotizacion/ficha-textil',
+                        element.id
+                      ]"
+                    >
+                      Textil
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      mat-flat-button
+                      color="primary"
+                      [routerLink]="[
+                        '/Comercial/ejecucion-cotizacion/moldes',
+                        element.id
+                      ]"
+                    >
+                      Moldes
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr
+          mat-row
+          *matRowDef="let element; columns: columnsToDisplay"
+          class="example-element-row"
+          [class.example-expanded-row]="expandedElement === element"
+          (click)="
+            expandedElement = expandedElement === element ? null : element
+          "
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['expandedDetail']"
+          class="example-detail-row"
+        ></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>

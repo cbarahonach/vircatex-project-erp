@@ -1,0 +1,161 @@
+<div id="detalle-cliente" class="container-fluid">
+  <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+  <div class="row">
+    <mat-card color="primary" class="mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>Datos del Cliente</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form [formGroup]="detallesForm">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre del Cliente</mat-label>
+                <input
+                  matInput
+                  formControlName="cliente"
+                  placeholder="Nombre del Cliente"
+                  [readonly]="readFrm"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>País</mat-label>
+                <mat-select matInput formControlName="pais" placeholder="País" [disabled]="readFrm">
+                  <mat-option>
+                    <ngx-mat-select-search
+                      formControlName="paisBuscador"
+                    ></ngx-mat-select-search>
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let pais of paisFiltrado | async"
+                    [value]="pais.id"
+                  >
+                    {{ pais.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo de Cliente</mat-label>
+                <mat-select
+                  matInput
+                  formControlName="tc"
+                  placeholder="Tipo de Cliente"
+                  [disabled]="readFrm"
+                >
+                <mat-option>
+                  <ngx-mat-select-search formControlName="tcBuscador"></ngx-mat-select-search>
+              </mat-option>
+              <mat-option *ngFor="let tc of tcFiltrado | async" [value]="tc.id">
+                  {{tc.nombre}}
+              </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre de Contacto</mat-label>
+                <input
+                  matInput
+                  formControlName="nombreContacto"
+                  placeholder="Nombre de Contacto"
+                  [readonly]="readFrm"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Correo de contacto</mat-label>
+                <input
+                  matInput
+                  formControlName="correoContacto"
+                  placeholder="Correo de contacto"
+                  [readonly]="readFrm"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Teléfono de contacto</mat-label>
+                <input
+                  matInput
+                  formControlName="telefonoContacto"
+                  placeholder="Teléfono de contacto"
+                  [readonly]="readFrm"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>División</mat-label>
+                <mat-select
+                  matInput
+                  formControlName="division"
+                  placeholder="División"
+                  [disabled]="readFrm"
+                >
+                <mat-option>
+                  <ngx-mat-select-search formControlName="divisionBuscador"></ngx-mat-select-search>
+              </mat-option>
+              <mat-option *ngFor="let division of divisionFiltrado | async" [value]="division.id">
+                  {{division.nombre}}
+              </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Volumen</mat-label>
+                <mat-select
+                  matInput
+                  formControlName="volumen"
+                  placeholder="volumen"
+                  [disabled]="readFrm"
+                >
+                <mat-option>
+                  <ngx-mat-select-search formControlName="volumenBuscador"></ngx-mat-select-search>
+              </mat-option>
+              <mat-option *ngFor="let volumen of volumenFiltrado | async" [value]="volumen.id">
+                  {{volumen.rango}}
+              </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions align="right">
+        <div>
+          <button
+            mat-stroked-button
+            *ngIf="!readFrm"
+            style="float:left"
+            (click)="statusFrm(true)"
+          >
+            Cancelar
+          </button>
+
+          <button
+            mat-raised-button
+            color="accent"
+            *ngIf="readFrm"
+            (click)="statusFrm(false)"
+          >
+            Editar
+          </button>
+          <mat-spinner-button
+            *ngIf="!readFrm"
+            [options]="spinnerButton"
+            (click)="registrarClientesDetalles()"
+          >
+          </mat-spinner-button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

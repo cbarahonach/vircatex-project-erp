@@ -1,0 +1,33 @@
+#hoja-cotizacion {
+  margin: 5px;
+  mat-card {
+    width: 100%;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  mat-hint {
+    color: red;
+  }
+  a:not([href]):hover {
+    color: #ffffff;
+  }
+  a {
+    margin-top: 5px;
+    padding: 6px 25px;
+    font-size: 15px;
+  }
+
+  .disabled textarea[readonly],
+  .disabled input[readonly]{
+    color: #3f51b5;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  ::ng-deep .disabled.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #3f51b5 !important;
+    opacity: 1 !important;
+    background-color: rgba(0,0,0,.009);
+  }
+}

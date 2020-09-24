@@ -1,0 +1,84 @@
+.hidden {
+  display: none;
+}
+
+form {
+    width: 100%;
+  }
+  
+  mat-dialog-content {
+    width: 99vw;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .tbl_dialog_container {
+    margin-top: 10px;
+  }
+  
+  .cdk-column-paso {
+    width: 5% ;
+  }
+  
+  .cdk-column-ruta {
+    width: 17% ;
+  }
+  
+  .cdk-column-observacion {
+    width: 70% ;
+  }
+  
+  .cdk-column-remove {
+    width: 8% ;
+  }
+
+  .form-file {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form-file .text {
+    display: inline-block;
+    width: 60%;
+    border: 1px solid #f2f2f2;
+    padding: 3px 0 8px 20px;
+    color: grey;
+    cursor: pointer;
+  }
+  
+  .form-file .commands {
+    display: inline-block;
+    width: 40%;
+    padding: 0px;
+  }
+
+  img {
+    width: 100%;
+    padding: 5px 0;
+  }
+  
+  
+  @media (max-width: 750px) {
+    mat-dialog-content{
+      min-width: 500px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    mat-dialog-content{
+      min-width: 300px;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    mat-dialog-content{
+      min-width: 800px;
+    }
+  }

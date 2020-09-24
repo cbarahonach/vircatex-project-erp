@@ -1,0 +1,127 @@
+<div class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <mat-card color="primary" class="mat-elevation-z8">
+          <mat-card-header>
+            <mat-card-title>Actualizar Proveedor</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form [formGroup]="acProveedorForm">
+              <div class="row">
+               
+                
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Correo</mat-label>
+                    <input matInput formControlName="correo" placeholder="Correo"/>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Razón Social</mat-label>
+                    <input matInput formControlName="razon_social" placeholder="Razón Social" />
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline" >
+                    <mat-label>RUC</mat-label>
+                    <input matInput formControlName="ruc" placeholder="RUC" readonly />
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Dirección</mat-label>
+                    <textarea matInput formControlName="direccion" placeholder="Dirección" rows="1" ></textarea>
+                  </mat-form-field>
+                </div>
+  
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput formControlName="telefono" placeholder="Teléfono"/>
+                  </mat-form-field>
+                </div>
+
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Forma de pago</mat-label>
+                    <mat-select formControlName="forma_pago" placeholder="Forma de pago" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search formControlName="forma_pago_buscador">
+                        </ngx-mat-select-search>
+                      </mat-option>
+                      <mat-option *ngFor="let fp of formaPagosFiltrado | async" [value]="fp.id">
+                        {{fp.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Bancos</mat-label>
+                    <mat-select formControlName="banco" autocomplete="off" placeholder="Bancos" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search formControlName="banco_buscador">
+                        </ngx-mat-select-search>
+                      </mat-option>
+                      <mat-option *ngFor="let banco of bancosFiltrado | async" [value]="banco.id">
+                        {{banco.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Moneda</mat-label>
+                    <mat-select formControlName="moneda" autocomplete="off" placeholder="Moneda" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search formControlName="moneda_buscador">
+                        </ngx-mat-select-search>
+                      </mat-option>
+                      <mat-option *ngFor="let moneda of monedasFiltrado | async" [value]="moneda.id">
+                        {{moneda.nombre + ' ' + '('+ moneda.codigo +')'}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+  
+                
+
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Número de cuenta</mat-label>
+                    <input matInput formControlName="num_cuenta" placeholder="Número de cuenta" />
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Número de cuenta interbancario</mat-label>
+                    <input matInput formControlName="num_cuenta_cci" placeholder="Número de cuenta interbancario" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+          </mat-card-content>
+
+          <mat-card-actions align="right">
+            <div>
+                <button mat-stroked-button style="float:left" (click)="acProveedorForm.reset()">
+                    Cancelar
+                </button>
+                <mat-spinner-button [options]="spinnerButtonOptions" (click)="actualizarProveedor()">
+                </mat-spinner-button>
+            </div>
+        </mat-card-actions>
+          
+        </mat-card>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,42 @@
+@import "../../../../scss/theme";
+
+$primary: map-get($theme, primary);
+$accent: map-get($theme, accent);
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    .title {
+      font-weight: 700;
+      font-size: 20px;
+      user-select: none;
+      cursor: default;
+      color: mat-color($primary);
+    }
+    .breadcrump {
+      list-style: none;
+      padding: 5px 16px;
+      background-color: #eee;
+      border-radius: 3px;
+  
+      li {
+        display: inline;
+        font-size: 15px;
+        cursor: default;
+        a {
+          color: #0275d8;
+          text-decoration: none;
+          &:hover {
+            color: mat-color($primary);
+            font-weight: 500;
+          }
+        }
+      }
+      li + li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+      }
+    }
+  }
+  

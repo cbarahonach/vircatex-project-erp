@@ -1,0 +1,149 @@
+<div class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <mat-card color="primary" class="mat-elevation-z8">
+                <mat-card-header>
+                    <mat-card-title>Registrar Cotizacion</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form #myForm="ngForm" [formGroup]="regcotizacionForm">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Cliente</mat-label>
+                                    <mat-select formControlName="cliente" autocomplete="off" placeholder="Cliente" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="clienteBuscador">
+                                            </ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let cliente of clienteFiltrado | async"
+                                            [value]="cliente.id">
+                                            {{cliente.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Temporada</mat-label>
+                                    <mat-select formControlName="temporada" autocomplete="off" placeholder="Temporada" #singleSelect>
+                                        <mat-option>
+                                            <ngx-mat-select-search formControlName="temporadaBuscador">
+                                            </ngx-mat-select-search>
+                                        </mat-option>
+                                        <mat-option *ngFor="let tem of temporadaFiltrado | async" [value]="tem.id">
+                                            {{tem.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Volumen</mat-label>
+                                    <input matInput readonly formControlName="volumen" autocomplete="off" placeholder="Volumen">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Estilo</mat-label>
+                                    <input matInput formControlName="estilo" autocomplete="off" placeholder="Estilo">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Tipo de Tela</mat-label>
+                                    <input matInput formControlName="tipoTela" autocomplete="off" placeholder="Tipo de Tela">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Composición de Tela</mat-label>
+                                    <input matInput formControlName="composicionTela"
+                                        autocomplete="off" placeholder="Composición de Tela.">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Complemento de Tela. (1)</mat-label>
+                                    <input matInput formControlName="compleTela1"
+                                        autocomplete="off" placeholder="Complemento de Tela. (1)">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Complemento de Tela. (2)</mat-label>
+                                    <input matInput formControlName="compleTela2"
+                                        autocomplete="off" placeholder="Complemento de Tela. (2)">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Complemento de Tela. (3)</mat-label>
+                                    <input matInput formControlName="compleTela3"
+                                        autocomplete="off" placeholder="Complemento de Tela. (3)">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Complemento de Tela. (4)</mat-label>
+                                    <input matInput formControlName="compleTela4"
+                                        autocomplete="off" placeholder="Complemento de Tela. (4)">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-file">
+                                    <div class="text" (click)="tpInput.click()">
+                                        <span>{{tpFileName}}</span>
+                                    </div>
+                                    <div class="commands">
+                                        <button type="button" mat-raised-button (click)="tpInput.click()">Subir
+                                            TP</button>
+                                        <input accept="image/png,image/jpeg,application/pdf" hidden ng2FileSelect [uploader]="uploader"
+                                            (onFileSelected)="onTPSelected($event)" #tpInput type="file" id="file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div class="form-file">
+                                    <div class="text" (click)="hmInput.click()">
+                                        <span>{{hmFileName}}</span>
+                                    </div>
+                                    <div class="commands">
+                                        <button type="button" mat-raised-button (click)="hmInput.click()">Subir Hoja de
+                                            medida</button>
+                                        <input accept=".xlsx, .xls, .csv, image/*, application/pdf" hidden ng2FileSelect [uploader]="uploader"
+                                            (onFileSelected)="onHMSelected($event)" #hmInput type="file" id="file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-3 col-sm-3 col-md-2 col-lg-1">
+                                        <a mat-raised-button (click)="openDialog()">CURVAS</a>
+                                    </div>
+                                    <div class="col-9 col-sm-9 col-md-10 col-lg-11">
+                                        <mat-chip-list aria-label="Fish selection">
+                                            <mat-chip color="primary" selected *ngFor="let item of curvasSeleccionadas" (click)="removeCurva(item)">
+                                                {{mostrarTalla(item.talla_id)}}-{{item.cantidad}}
+                                            </mat-chip>
+                                        </mat-chip-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+                <mat-card-actions align="right">
+                    <div>
+                        <button mat-stroked-button style="float:left" (click)="cancelarForm('error')">
+                            Cancelar
+                        </button>
+                        <mat-spinner-button [options]="spinnerButton" (click)="registrarCotizacion()">
+                        </mat-spinner-button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

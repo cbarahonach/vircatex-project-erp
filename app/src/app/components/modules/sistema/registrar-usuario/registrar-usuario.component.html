@@ -1,0 +1,11 @@
+<div id="registrar-usuario" class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-mobile">
+            <app-frm-registrar-usuario (updateTable)="listenForm($event)"></app-frm-registrar-usuario>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <app-tbl-registrar-usuario [listenReload]="reloadTable"></app-tbl-registrar-usuario>
+        </div>
+    </div>
+</div>

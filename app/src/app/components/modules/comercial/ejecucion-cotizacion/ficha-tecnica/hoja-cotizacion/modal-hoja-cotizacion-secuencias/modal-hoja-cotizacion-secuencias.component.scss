@@ -1,0 +1,61 @@
+form {
+    width: 100%;
+  }
+  
+  mat-dialog-content {
+    width: 99vw;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .tbl_dialog_container {
+    margin-top: 10px;
+  }
+  
+  .cdk-column-secuencia {
+    width: 10% ;
+    text-align: center;
+  }
+  
+  .cdk-column-descripcion {
+    width: 60% ;
+  }
+  
+  .cdk-column-merma {
+    width: 9% ;
+    text-align: center;
+  }
+  
+  .cdk-column-maquina {
+    width: 9% ;
+    text-align: center;
+  }
+
+  .cdk-column-puntadas {
+    width: 12% ;
+    text-align: center;
+  }
+  
+  @media (max-width: 750px) {
+    mat-dialog-content{
+      min-width: 500px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    mat-dialog-content{
+      min-width: 300px;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    mat-dialog-content{
+      min-width: 800px;
+    }
+  }

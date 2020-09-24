@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <app-breadcrumb [config]="breadcrumb"></app-breadcrumb>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-mobile">
+            <mat-card color="primary" class="mat-elevation-z8">
+                <mat-card-header>
+                    <mat-card-title *ngIf="changePass">Mis datos</mat-card-title>
+                    <mat-card-title *ngIf="!changePass">Cambiar contraseña</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <form [formGroup]="regProfileForm">
+                        <div class="row" *ngIf="changePass">
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput formControlName="nombres" placeholder="Nombre">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput formControlName="email" placeholder="Email">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Cargo</mat-label>
+                                    <input matInput formControlName="cargo" placeholder="Cargo">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Registro</mat-label>
+                                    <input matInput formControlName="registro" placeholder="Registro">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="!changePass">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Contraseña actual</mat-label>
+                                    <input type="password" matInput formControlName="clave_actual" placeholder="Contraseña actual">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Nueva contraseña</mat-label>
+                                    <input type="password" matInput formControlName="clave_nueva" placeholder="Nueva contraseña">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Confirmar nueva contraseña</mat-label>
+                                    <input type="password" matInput formControlName="clave_nueva_confirm" placeholder="Confirmar nueva contraseña">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </form>                    
+                </mat-card-content>
+                <mat-card-actions align="right">
+                    <div>
+                        <button mat-stroked-button *ngIf="!changePass" style="float:left" (click)="statusFrm(true)">
+                            Cancelar
+                        </button>
+        
+                        <button mat-raised-button color="accent" *ngIf="changePass" (click)="statusFrm(false)">
+                            Cambiar contraseña
+                        </button>
+                        <mat-spinner-button *ngIf="!changePass" [options]="spinnerButtonOptions"
+                            (click)="changePassword()">
+                        </mat-spinner-button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="header-section">
+            <span class="title">{{config.title}}</span>
+            <ul class="breadcrump" *ngIf="config.items.length > 0">
+                <li *ngFor="let item of config.items">
+                    <a *ngIf="item.redirectTo" [routerLink]="item.route">{{item.name}}</a>
+                    <span *ngIf="!item.redirectTo">{{item.name}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

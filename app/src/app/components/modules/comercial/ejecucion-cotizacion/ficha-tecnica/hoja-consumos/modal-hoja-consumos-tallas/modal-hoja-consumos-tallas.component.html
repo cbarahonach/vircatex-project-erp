@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Tallas registradas</h1>
+<mat-dialog-content>
+    <div style="visibility: hidden; height: 1px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sequi provident quibusdam sit voluptas consequatur
+        rem nobis laboriosam doloribus
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <table id="tbl_list_medidas" class="table table-bordered display nowrap">
+                <thead>
+                    <tr class="bg-royalblue">
+                        <th width="150px">TALLAS</th>
+                        <th *ngFor="let curva of tallas">{{curva.medida}}</th>
+                        <th width="100px">TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PROPORCION</td>
+                        <td *ngFor="let curva of tallas">{{curva.cantidad}}</td>
+                        <td class="bg-darkgray" style="font-size:15px; font-weight: 700">{{total_curvas}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button cdkFocusInitial color="warn" (click)="onClose()">Cerrar</button>
+</mat-dialog-actions>
